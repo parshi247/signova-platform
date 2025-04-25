@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signova AI - Demo Request</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">Signova AI</a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="features.html">Features</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="demo.html" class="active">Request Demo</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="testimonials.html">Testimonials</a></li>
+                        <li><a href="newsletter.html" class="highlight">Newsletter</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <section class="page-header">
+        <div class="container">
+            <h1>Request a Personalized Demo</h1>
+            <p>See how Signova AI can transform your document workflows with our AI-powered field detection technology.</p>
+        </div>
+    </section>
+    
+    <section class="breadcrumbs">
+        <div class="container">
+            <ul class="breadcrumbs-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="demo.html">Request Demo</a></li>
+            </ul>
+        </div>
+    </section>
+    
+    <section class="roi-calculator">
+        <div class="container">
+            <div class="section-title">
+                <h2>Calculate Your Potential ROI</h2>
+                <p>See how much time and money your organization can save with Signova AI</p>
+            </div>
+            <div class="calculator-container">
+                <div class="calculator-inputs">
+                    <div class="input-group">
+                        <label for="documents-per-month">Documents processed per month</label>
+                        <input type="range" id="documents-per-month" min="10" max="1000" value="100" step="10">
+                        <span class="range-value" id="documents-value">100</span>
+                    </div>
+                    <div class="input-group">
+                        <label for="time-per-document">Minutes spent per document (traditional)</label>
+                        <input type="range" id="time-per-document" min="5" max="60" value="20" step="1">
+                        <span class="range-value" id="time-value">20</span>
+                    </div>
+                    <div class="input-group">
+                        <label for="hourly-rate">Average hourly rate ($)</label>
+                        <input type="range" id="hourly-rate" min="15" max="100" value="35" step="5">
+                        <span class="range-value" id="rate-value">$35</span>
+                    </div>
+                </div>
+                <div class="calculator-results">
+                    <div class="result-card">
+                        <h3>Monthly Time Savings</h3>
+                        <p class="result-value" id="time-savings">25 hours</p>
+                    </div>
+                    <div class="result-card">
+                        <h3>Monthly Cost Savings</h3>
+                        <p class="result-value" id="cost-savings">$875</p>
+                    </div>
+                    <div class="result-card">
+                        <h3>Annual ROI</h3>
+                        <p class="result-value" id="annual-roi">564%</p>
+                    </div>
+                </div>
+                <div class="calculator-chart">
+                    <canvas id="savings-chart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="ai-demo">
+        <div class="container">
+            <div class="ai-demo-container">
+                <div class="ai-demo-content">
+                    <h2>AI-Powered Document Field Detection</h2>
+                    <p>Our proprietary AI technology automatically identifies form fields in your documents, saving you up to 75% of document preparation time compared to traditional solutions.</p>
+                    <ul>
+                        <li>Automatically detects text fields, checkboxes, and signature fields</li>
+                        <li>Intelligently recognizes field types based on context</li>
+                        <li>Suggests appropriate field names based on document content</li>
+                        <li>Works with any document format (PDF, Word, scanned images)</li>
+                        <li>Learns from your corrections to improve over time</li>
+                    </ul>
+                    <p>Watch our demo video to see the AI in action, or request a personalized demo below.</p>
+                </div>
+                <div class="ai-demo-image">
+                    <img src="images/ai-demo.jpg" alt="AI Document Field Detection Demo">
+                    <div class="ai-demo-overlay">
+                        <div class="ai-demo-play">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="contact-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Request Your Personalized Demo</h2>
+                <p>Fill out the form below and one of our product specialists will contact you to schedule a personalized demo tailored to your specific needs.</p>
+            </div>
+            <div class="form-container">
+                <form id="demo-form" action="thank-you.html">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="first-name">First Name*</label>
+                            <input type="text" id="first-name" name="first-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name">Last Name*</label>
+                            <input type="text" id="last-name" name="last-name" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Business Email*</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="company">Company Name*</label>
+                            <input type="text" id="company" name="company" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="job-title">Job Title*</label>
+                            <input type="text" id="job-title" name="job-title" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="company-size">Company Size*</label>
+                            <select id="company-size" name="company-size" required>
+                                <option value="">Select company size</option>
+                                <option value="1-10">1-10 employees</option>
+                                <option value="11-50">11-50 employees</option>
+                                <option value="51-200">51-200 employees</option>
+                                <option value="201-500">201-500 employees</option>
+                                <option value="501-1000">501-1000 employees</option>
+                                <option value="1001+">1001+ employees</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="industry">Industry*</label>
+                            <select id="industry" name="industry" required>
+                                <option value="">Select industry</option>
+                                <option value="financial-services">Financial Services</option>
+                                <option value="healthcare">Healthcare</option>
+                                <option value="legal">Legal</option>
+                                <option value="real-estate">Real Estate</option>
+                                <option value="insurance">Insurance</option>
+                                <option value="education">Education</option>
+                                <option value="government">Government</option>
+                                <option value="technology">Technology</option>
+                                <option value="manufacturing">Manufacturing</option>
+                                <option value="retail">Retail</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="documents-monthly">Approximately how many documents does your organization process monthly?*</label>
+                        <select id="documents-monthly" name="documents-monthly" required>
+                            <option value="">Select volume</option>
+                            <option value="<100">Less than 100</option>
+                            <option value="100-500">100-500</option>
+                            <option value="501-1000">501-1,000</option>
+                            <option value="1001-5000">1,001-5,000</option>
+                            <option value="5001+">More than 5,000</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Which features are you most interested in?</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="feature-ai" name="features" value="ai-field-detection">
+                                <label for="feature-ai">AI Field Detection</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="feature-workflow" name="features" value="workflow-automation">
+                                <label for="feature-workflow">Workflow Automation</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="feature-integration" name="features" value="enterprise-integration">
+                                <label for="feature-integration">Enterprise Integration</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="feature-compliance" name="features" value="compliance">
+                                <label for="feature-compliance">Compliance Features</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="feature-mobile" name="features" value="mobile">
+                                <label for="feature-mobile">Mobile Signing</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="feature-analytics" name="features" value="analytics">
+                                <label for="feature-analytics">Analytics & Reporting</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Additional Information</label>
+                        <textarea id="message" name="message" placeholder="Please share any specific requirements or questions you have."></textarea>
+                    </div>
+                    
+                    <div class="form-submit">
+                        <button type="submit" class="button primary">Request Demo</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <section class="testimonials-preview">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Clients Say</h2>
+                <p>Join hundreds of satisfied businesses that have transformed their document workflows with Signova AI.</p>
+            </div>
+            <div class="testimonial-card featured">
+                <div class="testimonial-content">
+                    <div class="quote-mark">"</div>
+                    <p>Signova AI has completely transformed how we handle client agreements. The AI field detection alone has saved our team over 30 hours per week in document preparation. The ROI was evident within the first month.</p>
+                    <div class="testimonial-author">
+                        <img src="images/testimonial-1.jpg" alt="Sarah Johnson">
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>CTO, Financial Services Inc.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-metrics">
+                    <div class="metric">
+                        <h5>Time Saved</h5>
+                        <p>75%</p>
+                    </div>
+                    <div class="metric">
+                        <h5>ROI</h5>
+                        <p>564%</p>
+                    </div>
+                    <div class="metric">
+                        <h5>Satisfaction</h5>
+                        <p>98%</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonials-cta">
+                <a href="testimonials.html" class="button">Read More Testimonials</a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Document Workflows?</h2>
+                <p>Join hundreds of businesses that have increased efficiency and reduced costs with Signova AI.</p>
+                <div class="cta-buttons">
+                    <a href="#demo-form" class="button primary">Request Demo Now</a>
+                    <a href="contact.html" class="button">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="index.html">Signova AI</a>
+                    <p>AI-Powered Document Signing Platform</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Product</h4>
+                        <ul>
+                            <li><a href="features.html">Features</a></li>
+                            <li><a href="pricing.html">Pricing</a></li>
+                            <li><a href="enterprise.html">Enterprise</a></li>
+                            <li><a href="security.html">Security</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="testimonials.html">Testimonials</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="careers.html">Careers</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="documentation.html">Documentation</a></li>
+                            <li><a href="api.html">API</a></li>
+                            <li><a href="guides.html">Guides</a></li>
+                            <li><a href="support.html">Support</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="demo.html">Request Demo</a></li>
+                            <li><a href="newsletter.html">Newsletter</a></li>
+                            <li><a href="partners.html">Partners</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Signova AI. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/roi-calculator.js"></script>
+</body>
+</html>

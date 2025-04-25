@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signova AI - Newsletter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">Signova AI</a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="features.html">Features</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="demo.html">Request Demo</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="testimonials.html">Testimonials</a></li>
+                        <li><a href="newsletter.html" class="active highlight">Newsletter</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <section class="page-header">
+        <div class="container">
+            <h1>Subscribe to Our Newsletter</h1>
+            <p>Get the latest insights on document workflow optimization, AI innovations, and industry best practices.</p>
+        </div>
+    </section>
+    
+    <section class="breadcrumbs">
+        <div class="container">
+            <ul class="breadcrumbs-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="newsletter.html">Newsletter</a></li>
+            </ul>
+        </div>
+    </section>
+    
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-benefits">
+                <div class="section-title">
+                    <h2>Why Subscribe to Our Newsletter?</h2>
+                    <p>Join thousands of professionals who receive our bi-weekly insights on document workflow optimization.</p>
+                </div>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <h3>ROI Strategies</h3>
+                        <p>Learn proven strategies to maximize your return on investment with AI-powered document solutions. Our case studies and implementation guides help you achieve measurable results.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>Industry Insights</h3>
+                        <p>Stay informed about the latest trends and innovations in document management across industries including finance, healthcare, legal, and more.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>AI Technology Updates</h3>
+                        <p>Get exclusive updates on advancements in AI document processing technology and how they can be applied to your specific business challenges.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>Compliance & Security</h3>
+                        <p>Receive expert guidance on maintaining compliance with regulations like HIPAA, GDPR, and SOC2 while optimizing your document workflows.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>Exclusive Resources</h3>
+                        <p>Access templates, checklists, and guides that help you implement best practices for document management in your organization.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>Early Access</h3>
+                        <p>Be the first to know about new Signova AI features and get early access to beta programs and special promotions.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-container">
+                <div class="form-title">
+                    <h3>Subscribe Today</h3>
+                    <p>Join over 10,000 professionals receiving our bi-weekly insights.</p>
+                </div>
+                <form id="newsletter-form" action="thank-you.html">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="first-name">First Name*</label>
+                            <input type="text" id="first-name" name="first-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name">Last Name*</label>
+                            <input type="text" id="last-name" name="last-name" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Business Email*</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="company">Company Name</label>
+                            <input type="text" id="company" name="company">
+                        </div>
+                        <div class="form-group">
+                            <label for="job-title">Job Title</label>
+                            <input type="text" id="job-title" name="job-title">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="industry">Industry</label>
+                        <select id="industry" name="industry">
+                            <option value="">Select industry</option>
+                            <option value="financial-services">Financial Services</option>
+                            <option value="healthcare">Healthcare</option>
+                            <option value="legal">Legal</option>
+                            <option value="real-estate">Real Estate</option>
+                            <option value="insurance">Insurance</option>
+                            <option value="education">Education</option>
+                            <option value="government">Government</option>
+                            <option value="technology">Technology</option>
+                            <option value="manufacturing">Manufacturing</option>
+                            <option value="retail">Retail</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Topics of Interest</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="topic-ai" name="topics" value="ai-technology">
+                                <label for="topic-ai">AI Technology</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="topic-roi" name="topics" value="roi-strategies">
+                                <label for="topic-roi">ROI Strategies</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="topic-compliance" name="topics" value="compliance">
+                                <label for="topic-compliance">Compliance & Security</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="topic-industry" name="topics" value="industry-insights">
+                                <label for="topic-industry">Industry Insights</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="topic-case-studies" name="topics" value="case-studies">
+                                <label for="topic-case-studies">Case Studies</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="topic-product" name="topics" value="product-updates">
+                                <label for="topic-product">Product Updates</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="enterprise-interest" name="enterprise-interest" value="yes">
+                            <label for="enterprise-interest">I'm interested in enterprise features</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-submit">
+                        <button type="submit" class="button primary">Subscribe to Newsletter</button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="newsletter-preview">
+                <h3>Sample Newsletter Content</h3>
+                <div class="newsletter-example">
+                    <h4>How AI is Transforming Document Workflows in Financial Services</h4>
+                    <p>Financial institutions process thousands of documents daily, from loan applications to compliance forms. Traditional document handling methods are time-consuming and error-prone, leading to delays and customer frustration.</p>
+                    <p>In our latest case study, we explore how a leading financial services firm reduced document processing time by 75% and achieved a 564% ROI within the first year of implementing AI-powered document field detection.</p>
+                    <p>Key insights include:</p>
+                    <ul>
+                        <li>How AI automatically identifies form fields in complex financial documents</li>
+                        <li>The impact on customer satisfaction and employee productivity</li>
+                        <li>Compliance considerations and how AI helps maintain regulatory standards</li>
+                        <li>Implementation strategies for financial institutions of all sizes</li>
+                    </ul>
+                    <p><strong>Read the full article in our next newsletter. Subscribe today!</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="testimonials-preview">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Subscribers Say</h2>
+                <p>Join thousands of professionals who rely on our newsletter for industry insights.</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <div class="quote-mark">"</div>
+                    <p>The Signova AI newsletter has become an essential resource for our team. The ROI strategies and implementation guides have helped us optimize our document workflows and achieve significant cost savings.</p>
+                    <div class="testimonial-author">
+                        <img src="images/newsletter-testimonial-1.jpg" alt="Robert Chen">
+                        <div class="author-info">
+                            <h4>Robert Chen</h4>
+                            <p>Director of Operations, Global Financial Group</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Document Workflows?</h2>
+                <p>Join hundreds of businesses that have increased efficiency and reduced costs with Signova AI.</p>
+                <div class="cta-buttons">
+                    <a href="demo.html" class="button primary">Request Demo</a>
+                    <a href="contact.html" class="button">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="index.html">Signova AI</a>
+                    <p>AI-Powered Document Signing Platform</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Product</h4>
+                        <ul>
+                            <li><a href="features.html">Features</a></li>
+                            <li><a href="pricing.html">Pricing</a></li>
+                            <li><a href="enterprise.html">Enterprise</a></li>
+                            <li><a href="security.html">Security</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="testimonials.html">Testimonials</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="careers.html">Careers</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="documentation.html">Documentation</a></li>
+                            <li><a href="api.html">API</a></li>
+                            <li><a href="guides.html">Guides</a></li>
+                            <li><a href="support.html">Support</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="demo.html">Request Demo</a></li>
+                            <li><a href="newsletter.html">Newsletter</a></li>
+                            <li><a href="partners.html">Partners</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Signova AI. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

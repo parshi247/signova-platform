@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signova AI - Document Signing Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">Signova AI</a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="features.html">Features</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="demo.html">Request Demo</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="testimonials.html">Testimonials</a></li>
+                        <li><a href="newsletter.html" class="highlight">Newsletter</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>AI-Powered Document Signing Platform</h1>
+                    <p>Signova AI revolutionizes document signing with intelligent field detection, saving you 75% of document preparation time compared to traditional solutions.</p>
+                    <div class="hero-buttons">
+                        <a href="demo.html" class="button primary">Request Demo</a>
+                        <a href="features.html" class="button">Explore Features</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="images/hero-illustration.svg" alt="Signova AI Document Signing Platform">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="roi-calculator">
+        <div class="container">
+            <div class="section-title">
+                <h2>Calculate Your ROI</h2>
+                <p>See how much time and money you can save with Signova AI</p>
+            </div>
+            <div class="calculator-container">
+                <div class="calculator-inputs">
+                    <div class="input-group">
+                        <label for="documents-per-month">Documents processed per month</label>
+                        <input type="range" id="documents-per-month" min="10" max="1000" value="100" step="10">
+                        <span class="range-value" id="documents-value">100</span>
+                    </div>
+                    <div class="input-group">
+                        <label for="time-per-document">Minutes spent per document (traditional)</label>
+                        <input type="range" id="time-per-document" min="5" max="60" value="20" step="1">
+                        <span class="range-value" id="time-value">20</span>
+                    </div>
+                    <div class="input-group">
+                        <label for="hourly-rate">Average hourly rate ($)</label>
+                        <input type="range" id="hourly-rate" min="15" max="100" value="35" step="5">
+                        <span class="range-value" id="rate-value">$35</span>
+                    </div>
+                </div>
+                <div class="calculator-results">
+                    <div class="result-card">
+                        <h3>Monthly Time Savings</h3>
+                        <p class="result-value" id="time-savings">25 hours</p>
+                    </div>
+                    <div class="result-card">
+                        <h3>Monthly Cost Savings</h3>
+                        <p class="result-value" id="cost-savings">$875</p>
+                    </div>
+                    <div class="result-card">
+                        <h3>Annual ROI</h3>
+                        <p class="result-value" id="annual-roi">564%</p>
+                    </div>
+                </div>
+                <div class="calculator-chart">
+                    <canvas id="savings-chart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Signova AI</h2>
+                <p>Our platform combines cutting-edge AI technology with intuitive design to streamline your document workflows.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="images/ai-icon.svg" alt="AI Field Detection">
+                    </div>
+                    <h3>AI Field Detection</h3>
+                    <p>Our advanced AI automatically identifies form fields in your documents, reducing preparation time by up to 75%.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="images/security-icon.svg" alt="Secure Signatures">
+                    </div>
+                    <h3>Secure Signatures</h3>
+                    <p>Industry-leading encryption and blockchain verification ensure your signatures are legally binding and tamper-proof.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="images/workflow-icon.svg" alt="Workflow Automation">
+                    </div>
+                    <h3>Workflow Automation</h3>
+                    <p>Create custom document workflows with conditional routing, reminders, and approval processes.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="images/enterprise-icon.svg" alt="Enterprise Integration">
+                    </div>
+                    <h3>Enterprise Integration</h3>
+                    <p>Seamlessly integrate with your existing systems through our comprehensive API and pre-built connectors.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="images/compliance-icon.svg" alt="Compliance Ready">
+                    </div>
+                    <h3>Compliance Ready</h3>
+                    <p>Meet regulatory requirements with HIPAA, GDPR, and SOC2 compliant document processing and storage.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="images/mobile-icon.svg" alt="Mobile Friendly">
+                    </div>
+                    <h3>Mobile Friendly</h3>
+                    <p>Sign documents on any device with our responsive design and dedicated mobile applications.</p>
+                </div>
+            </div>
+            <div class="features-cta">
+                <a href="features.html" class="button">View All Features</a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="testimonials-preview">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Clients Say</h2>
+                <p>Join hundreds of satisfied businesses that have transformed their document workflows with Signova AI.</p>
+            </div>
+            <div class="testimonial-card featured">
+                <div class="testimonial-content">
+                    <div class="quote-mark">"</div>
+                    <p>Signova AI has completely transformed how we handle client agreements. The AI field detection alone has saved our team over 30 hours per week in document preparation. The ROI was evident within the first month.</p>
+                    <div class="testimonial-author">
+                        <img src="images/testimonial-1.jpg" alt="Sarah Johnson">
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>CTO, Financial Services Inc.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-metrics">
+                    <div class="metric">
+                        <h5>Time Saved</h5>
+                        <p>75%</p>
+                    </div>
+                    <div class="metric">
+                        <h5>ROI</h5>
+                        <p>564%</p>
+                    </div>
+                    <div class="metric">
+                        <h5>Satisfaction</h5>
+                        <p>98%</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonials-cta">
+                <a href="testimonials.html" class="button">Read More Testimonials</a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="newsletter-signup">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="newsletter-text">
+                    <h2>Stay Updated</h2>
+                    <p>Subscribe to our newsletter for the latest updates, industry insights, and tips to maximize your document workflow efficiency.</p>
+                </div>
+                <div class="newsletter-form">
+                    <form id="newsletter-form" action="thank-you.html">
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your email address" required>
+                        </div>
+                        <button type="submit" class="button primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Document Workflows?</h2>
+                <p>Join hundreds of businesses that have increased efficiency and reduced costs with Signova AI.</p>
+                <div class="cta-buttons">
+                    <a href="demo.html" class="button primary">Request Demo</a>
+                    <a href="contact.html" class="button">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="index.html">Signova AI</a>
+                    <p>AI-Powered Document Signing Platform</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Product</h4>
+                        <ul>
+                            <li><a href="features.html">Features</a></li>
+                            <li><a href="pricing.html">Pricing</a></li>
+                            <li><a href="enterprise.html">Enterprise</a></li>
+                            <li><a href="security.html">Security</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="testimonials.html">Testimonials</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="careers.html">Careers</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="documentation.html">Documentation</a></li>
+                            <li><a href="api.html">API</a></li>
+                            <li><a href="guides.html">Guides</a></li>
+                            <li><a href="support.html">Support</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="demo.html">Request Demo</a></li>
+                            <li><a href="newsletter.html">Newsletter</a></li>
+                            <li><a href="partners.html">Partners</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Signova AI. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/roi-calculator.js"></script>
+</body>
+</html>
