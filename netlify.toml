@@ -1,0 +1,32 @@
+[build]
+  publish = "public"
+  command = "npm run build"
+
+[build.environment]
+  NODE_VERSION = "16"
+  AI_MANAGED = "true"
+
+[context.production]
+  environment = { AI_ENVIRONMENT = "production" }
+
+[context.deploy-preview]
+  environment = { AI_ENVIRONMENT = "staging" }
+
+[dev]
+  framework = "#static"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+[[headers]]
+  for = "/*"
+    [headers.values]
+    X-AI-Managed = "true"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+
+[functions]
+  directory = "functions"
