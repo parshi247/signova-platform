@@ -37,37 +37,39 @@
         <p>&copy; 2025 Signova Platform. Managed by Manus AI.</p>
     </footer>
     <script>
-        document.getElementById('registerForm').addEventListener('submit', async function(event) {
+        document.getElementById("registerForm").addEventListener("submit", async function(event) {
             event.preventDefault();
-            const username = document.getElementById('username').value;
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            const messageElement = document.getElementById('message');
+            const username = document.getElementById("username").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const messageElement = document.getElementById("message");
 
             try {
-                const response = await fetch('http://159.223.172.234/auth/register', {
-                    method: 'POST',
+                // Updated to HTTPS
+                const response = await fetch("https://159.223.172.234/auth/register", {
+                    method: "POST",
                     headers: {
-                        'Content-Type': 'application/json'
+                        "Content-Type": "application/json"
                     },
                     body: JSON.stringify({ username, email, password })
                 });
                 const data = await response.json();
                 if (response.ok) {
-                    messageElement.textContent = data.message || 'Registration successful! You can now login.';
-                    messageElement.style.color = 'green';
+                    messageElement.textContent = data.message || "Registration successful! You can now login.";
+                    messageElement.style.color = "green";
                     // Optionally redirect to login page or dashboard
-                    // window.location.href = 'login.html';
+                    // window.location.href = "login.html";
                 } else {
-                    messageElement.textContent = data.error || 'Registration failed. Please try again.';
-                    messageElement.style.color = 'red';
+                    messageElement.textContent = data.error || "Registration failed. Please try again.";
+                    messageElement.style.color = "red";
                 }
             } catch (error) {
-                console.error('Error:', error);
-                messageElement.textContent = 'An error occurred. Please try again later.';
-                messageElement.style.color = 'red';
+                console.error("Error:", error);
+                messageElement.textContent = "An error occurred. Please try again later.";
+                messageElement.style.color = "red";
             }
         });
     </script>
 </body>
 </html>
+
