@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Signova Platform</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Signova Platform</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="register.html">Register</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Login to Your Account</h2>
+        <form id="loginForm">
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        <p id="message"></p>
+    </main>
+    <footer>
+        <p>&copy; 2025 Signova Platform. Managed by Manus AI.</p>
+    </footer>
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", async function(event) {
+            event.preventDefault();
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const messageElement = document.getElementById("message");
+
+            try {
+                const response = await fetch("http://159.223.172.234/auth/login", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ email, password })
+                });
+                const data = await response.json();
+                if (response.ok) {
+                    messageElement.textContent = data.message || "Login successful!";
+                    messageElement.style.color = "green";
+                    // Store token and redirect to dashboard or protected page
+                    // localStorage.setItem("token", data.access_token);
+                    // window.location.href = "dashboard.html"; 
+                } else {
+                    messageElement.textContent = data.error || "Login failed. Please check your credentials.";
+                    messageElement.style.color = "red";
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                messageElement.textContent = "An error occurred. Please try again later.";
+                messageElement.style.color = "red";
+            }
+        });
+    </script>
+</body>
+</html>
