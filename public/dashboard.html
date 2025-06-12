@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Signova Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8fafc;
+            color: #333;
+        }
+
+        .header {
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #2563eb;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: #10b981;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #e5e7eb;
+            color: #374151;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .welcome {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .welcome h1 {
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+
+        .welcome p {
+            color: #64748b;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .stat-card h3 {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .stat-card .value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        .actions {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .actions h2 {
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+        }
+
+        .action-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .action-card {
+            border: 2px solid #e5e7eb;
+            padding: 1.5rem;
+            border-radius: 12px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .action-card:hover {
+            border-color: #10b981;
+            transform: translateY(-2px);
+        }
+
+        .action-card h3 {
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+
+        .action-card p {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .coming-soon {
+            background: #fef3c7;
+            color: #92400e;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">Signova</div>
+            <div class="user-menu">
+                <span id="userEmail">Loading...</span>
+                <button class="btn btn-secondary" onclick="logout()">Sign Out</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="welcome">
+            <h1>Welcome to Signova</h1>
+            <p>Your AI-powered document signing platform is ready to streamline your workflows.</p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>Documents Signed</h3>
+                <div class="value">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>Active Documents</h3>
+                <div class="value">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>Templates Created</h3>
+                <div class="value">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>Time Saved</h3>
+                <div class="value">0h</div>
+            </div>
+        </div>
+
+        <div class="actions">
+            <h2>Quick Actions</h2>
+            <div class="action-grid">
+                <div class="action-card" onclick="alert('Document upload feature coming soon!')">
+                    <h3>Upload Document <span class="coming-soon">Coming Soon</span></h3>
+                    <p>Upload a document and prepare it for electronic signatures with AI-powered field detection.</p>
+                </div>
+                <div class="action-card" onclick="alert('Template creation feature coming soon!')">
+                    <h3>Create Template <span class="coming-soon">Coming Soon</span></h3>
+                    <p>Create reusable document templates to speed up your signing workflows.</p>
+                </div>
+                <div class="action-card" onclick="alert('Contact management feature coming soon!')">
+                    <h3>Manage Contacts <span class="coming-soon">Coming Soon</span></h3>
+                    <p>Add and organize your frequently used contacts for faster document sending.</p>
+                </div>
+                <div class="action-card" onclick="alert('Analytics feature coming soon!')">
+                    <h3>View Analytics <span class="coming-soon">Coming Soon</span></h3>
+                    <p>Track your document signing performance and identify optimization opportunities.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Check if user is authenticated
+        const token = localStorage.getItem("signova_token");
+        if (!token) {
+            window.location.href = "login.html";
+        }
+
+        // Display user email if available
+        const userEmail = localStorage.getItem("signova_email") || "User";
+        document.getElementById("userEmail").textContent = userEmail;
+
+        function logout() {
+            localStorage.removeItem("signova_token");
+            localStorage.removeItem("signova_email");
+            window.location.href = "index.html";
+        }
+
+        // Simulate loading user data
+        setTimeout(() => {
+            // In a real implementation, this would fetch data from the backend
+            console.log("Dashboard loaded for user:", userEmail);
+        }, 1000);
+    </script>
+</body>
+</html>
+

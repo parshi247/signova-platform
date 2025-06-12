@@ -3,67 +3,299 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Signova Platform</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <title>Sign In - Signova Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+        }
+
+        .container {
+            background: white;
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .logo h1 {
+            color: #2563eb;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .logo p {
+            color: #64748b;
+            margin-top: 0.5rem;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #1e293b;
+            font-weight: 600;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #374151;
+            font-weight: 500;
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 0.75rem;
+            background: #10b981;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background: #059669;
+        }
+
+        .btn:disabled {
+            background: #9ca3af;
+            cursor: not-allowed;
+        }
+
+        .message {
+            margin-top: 1rem;
+            padding: 0.75rem;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .message.success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #a7f3d0;
+        }
+
+        .message.error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #fca5a5;
+        }
+
+        .links {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .links a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+
+        .divider {
+            margin: 1rem 0;
+            text-align: center;
+            color: #64748b;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .spinner {
+            border: 2px solid #f3f4f6;
+            border-top: 2px solid #2563eb;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Signova Platform</h1>
-        <nav>
-            <a href="/">Home</a>
-            <a href="register.html">Register</a>
-        </nav>
-    </header>
-    <main>
-        <h2>Login to Your Account</h2>
+    <div class="container">
+        <div class="logo">
+            <h1>Signova</h1>
+            <p>Professional Document Signing Platform</p>
+        </div>
+        
+        <h2>Sign In to Your Account</h2>
+        
         <form id="loginForm">
-            <div>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required placeholder="Enter your email">
             </div>
-            <div>
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required placeholder="Enter your password">
             </div>
-            <button type="submit">Login</button>
+            
+            <button type="submit" class="btn" id="loginBtn">Sign In</button>
         </form>
-        <p id="message"></p>
-    </main>
-    <footer>
-        <p>&copy; 2025 Signova Platform. Managed by Manus AI.</p>
-    </footer>
+        
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Signing you in...</p>
+        </div>
+        
+        <div id="message" class="message" style="display: none;"></div>
+        
+        <div class="links">
+            <p>Don't have an account? <a href="register.html">Start Free Trial</a></p>
+            <div class="divider">or</div>
+            <p><a href="index.html">← Back to Home</a></p>
+        </div>
+    </div>
+
     <script>
         document.getElementById("loginForm").addEventListener("submit", async function(event) {
             event.preventDefault();
+            
             const email = document.getElementById("email").value;
             const password = document.getElementById("password").value;
             const messageElement = document.getElementById("message");
+            const loadingElement = document.getElementById("loading");
+            const loginBtn = document.getElementById("loginBtn");
+
+            // Show loading state
+            loadingElement.style.display = "block";
+            loginBtn.disabled = true;
+            loginBtn.textContent = "Signing In...";
+            messageElement.style.display = "none";
 
             try {
-                const response = await fetch("http://159.223.172.234/auth/login", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({ email, password })
-                });
-                const data = await response.json();
-                if (response.ok) {
-                    messageElement.textContent = data.message || "Login successful!";
-                    messageElement.style.color = "green";
-                    // Store token and redirect to dashboard or protected page
-                    // localStorage.setItem("token", data.access_token);
-                    // window.location.href = "dashboard.html"; 
-                } else {
-                    messageElement.textContent = data.error || "Login failed. Please check your credentials.";
-                    messageElement.style.color = "red";
+                // Try multiple backend endpoints
+                const endpoints = [
+                    "http://167.172.130.120/auth/login",  // signova-backend-secure
+                    "http://142.93.60.69/auth/login",     // signova-auth-server
+                    "http://159.223.172.234/auth/login"   // alternative endpoint
+                ];
+
+                let response = null;
+                let lastError = null;
+
+                for (const endpoint of endpoints) {
+                    try {
+                        response = await fetch(endpoint, {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({ email, password })
+                        });
+                        
+                        if (response.ok) {
+                            break; // Success, exit the loop
+                        }
+                    } catch (error) {
+                        lastError = error;
+                        continue; // Try next endpoint
+                    }
                 }
+
+                if (!response || !response.ok) {
+                    throw new Error("Unable to connect to authentication service");
+                }
+
+                const data = await response.json();
+                
+                // Hide loading state
+                loadingElement.style.display = "none";
+                loginBtn.disabled = false;
+                loginBtn.textContent = "Sign In";
+
+                messageElement.textContent = data.message || "Login successful!";
+                messageElement.className = "message success";
+                messageElement.style.display = "block";
+
+                // Store authentication token if provided
+                if (data.access_token) {
+                    localStorage.setItem("signova_token", data.access_token);
+                }
+
+                // Redirect to dashboard or admin panel after successful login
+                setTimeout(() => {
+                    if (email === "ceo@signova.ai") {
+                        window.location.href = "http://167.172.130.120/admin";
+                    } else {
+                        // Redirect to user dashboard (to be implemented)
+                        window.location.href = "dashboard.html";
+                    }
+                }, 1500);
+
             } catch (error) {
-                console.error("Error:", error);
-                messageElement.textContent = "An error occurred. Please try again later.";
-                messageElement.style.color = "red";
+                console.error("Login error:", error);
+                
+                // Hide loading state
+                loadingElement.style.display = "none";
+                loginBtn.disabled = false;
+                loginBtn.textContent = "Sign In";
+
+                messageElement.textContent = "Unable to sign in. Please check your credentials and try again.";
+                messageElement.className = "message error";
+                messageElement.style.display = "block";
             }
         });
+
+        // Auto-focus email field
+        document.getElementById("email").focus();
     </script>
 </body>
 </html>
+
