@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solutions - Signova</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #2563eb;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #64748b;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: #10b981;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #059669;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #64748b;
+            border: 2px solid #e2e8f0;
+        }
+
+        .btn-secondary:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 120px 0 80px;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .page-title h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        .page-title p {
+            font-size: 1.2rem;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .solution-card {
+            background: #f8fafc;
+            padding: 3rem;
+            border-radius: 16px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .solution-icon {
+            width: 80px;
+            height: 80px;
+            background: #10b981;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .solution-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        .solution-card p {
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .solution-features {
+            list-style: none;
+            text-align: left;
+        }
+
+        .solution-features li {
+            padding: 0.5rem 0;
+            color: #64748b;
+            display: flex;
+            align-items: center;
+        }
+
+        .solution-features li::before {
+            content: "✓";
+            color: #10b981;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #1e293b;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #10b981;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: #10b981;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 1rem;
+            text-align: center;
+            color: #9ca3af;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-title h1 {
+                font-size: 2rem;
+            }
+            
+            .solutions-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <span>S</span>
+                    Signova
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="solutions.html">Solutions</a></li>
+                        <li><a href="platform.html">Platform</a></li>
+                        <li><a href="security.html">Security</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                    </ul>
+                </nav>
+                <div class="auth-buttons">
+                    <a href="login.html" class="btn btn-secondary">Sign In</a>
+                    <a href="register.html" class="btn btn-primary">Start Free Trial</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="page-title">
+                <h1>Industry Solutions</h1>
+                <p>Tailored electronic signature solutions for every industry, designed to meet specific compliance and workflow requirements.</p>
+            </div>
+
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <div class="solution-icon">🏢</div>
+                    <h3>Enterprise Solutions</h3>
+                    <p>Comprehensive document signing solutions for large organizations with complex workflows and high-volume requirements.</p>
+                    <ul class="solution-features">
+                        <li>Advanced user management and permissions</li>
+                        <li>Custom branding and white-label options</li>
+                        <li>Enterprise-grade security and compliance</li>
+                        <li>Dedicated support and training</li>
+                        <li>API integration and custom development</li>
+                    </ul>
+                </div>
+
+                <div class="solution-card">
+                    <div class="solution-icon">⚖️</div>
+                    <h3>Legal Industry</h3>
+                    <p>Specialized solutions for law firms, legal departments, and court systems with strict compliance requirements.</p>
+                    <ul class="solution-features">
+                        <li>Legal-specific document templates</li>
+                        <li>Court-admissible electronic signatures</li>
+                        <li>Advanced audit trails and evidence packages</li>
+                        <li>Client portal and case management integration</li>
+                        <li>Bar association compliance standards</li>
+                    </ul>
+                </div>
+
+                <div class="solution-card">
+                    <div class="solution-icon">💰</div>
+                    <h3>Financial Services</h3>
+                    <p>Secure and compliant solutions for banks, credit unions, insurance companies, and financial advisors.</p>
+                    <ul class="solution-features">
+                        <li>FFIEC and regulatory compliance</li>
+                        <li>Know Your Customer (KYC) integration</li>
+                        <li>Loan and mortgage document processing</li>
+                        <li>Insurance claim and policy management</li>
+                        <li>Multi-factor authentication and fraud prevention</li>
+                    </ul>
+                </div>
+
+                <div class="solution-card">
+                    <div class="solution-icon">🏥</div>
+                    <h3>Healthcare</h3>
+                    <p>HIPAA-compliant solutions for healthcare providers, hospitals, and medical device companies.</p>
+                    <ul class="solution-features">
+                        <li>HIPAA compliance and patient privacy protection</li>
+                        <li>Medical consent and authorization forms</li>
+                        <li>Telemedicine and remote patient monitoring</li>
+                        <li>Clinical trial and research documentation</li>
+                        <li>Healthcare provider credentialing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Solutions</h4>
+                    <ul>
+                        <li><a href="solutions.html#enterprise">Enterprise</a></li>
+                        <li><a href="solutions.html#legal">Legal</a></li>
+                        <li><a href="solutions.html#finance">Finance</a></li>
+                        <li><a href="solutions.html#healthcare">Healthcare</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Platform</h4>
+                    <ul>
+                        <li><a href="platform.html#features">Features</a></li>
+                        <li><a href="security.html">Security</a></li>
+                        <li><a href="platform.html#integrations">Integrations</a></li>
+                        <li><a href="platform.html#api">API</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="support.html">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Signova. All rights reserved.</p>
+                <a href="#" style="color: #10b981; text-decoration: none; margin-left: 1rem;">Made with Manus</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
