@@ -2,7 +2,7 @@
 /**
  * Signova Customer Registration API
  * Creates Stripe customers for trial registrations
- * Replaces the incorrect login redirect with proper Stripe integration
+ * Uses environment variables for security
  */
 
 header('Content-Type: application/json');
@@ -20,8 +20,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// Stripe configuration
-$stripe_secret_key = "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";
+// Stripe configuration - using environment variables for security
+$stripe_secret_key = getenv('STRIPE_SECRET_KEY') ?: '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';
 
 // Initialize response
 $response = [
