@@ -20,8 +20,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// Stripe configuration - using environment variables for security
-$stripe_secret_key = getenv('STRIPE_SECRET_KEY') ?: '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';
+// Stripe configuration - MUST be set as environment variable on server
+$stripe_secret_key = getenv('STRIPE_SECRET_KEY');
+if (!$stripe_secret_key) {
+    // Fallback for development - server admin must set STRIPE_SECRET_KEY environment variable
+    $stripe_secret_key = 'STRIPE_KEY_MUST_BE_SET_AS_ENVIRONMENT_VARIABLE';
+}
 
 // Initialize response
 $response = [
@@ -59,6 +63,35 @@ try {
         throw new Exception('Invalid email format');
     }
 
+    // Check if Stripe key is properly configured
+    if ($stripe_secret_key === 'STRIPE_KEY_MUST_BE_SET_AS_ENVIRONMENT_VARIABLE') {
+        // Fallback: Create customer record without Stripe (for testing)
+        $customer_id = 'cus_test_' . uniqid();
+        
+        // Log the registration
+        $log_entry = [
+            'timestamp' => date('c'),
+            'customer_id' => $customer_id,
+            'company' => $data['company'],
+            'name' => $data['fullname'],
+            'email' => $data['email'],
+            'phone' => $data['phone'],
+            'plan' => $data['plan'],
+            'users' => $data['users'],
+            'status' => 'trial_started',
+            'method' => 'fallback_registration_no_stripe_key'
+        ];
+        
+        file_put_contents('/tmp/signova_registrations.log', json_encode($log_entry) . "\n", FILE_APPEND | LOCK_EX);
+        
+        $response['success'] = true;
+        $response['customer_id'] = $customer_id;
+        $response['message'] = 'Registration successful! Trial started (Stripe key not configured).';
+        
+        echo json_encode($response, JSON_PRETTY_PRINT);
+        exit();
+    }
+
     // Check if Stripe library is available
     if (!class_exists('Stripe\Stripe')) {
         // Try to include Stripe library
@@ -93,14 +126,14 @@ try {
                 'plan' => $data['plan'],
                 'users' => $data['users'],
                 'status' => 'trial_started',
-                'method' => 'fallback_registration'
+                'method' => 'fallback_registration_no_stripe_library'
             ];
             
             file_put_contents('/tmp/signova_registrations.log', json_encode($log_entry) . "\n", FILE_APPEND | LOCK_EX);
             
             $response['success'] = true;
             $response['customer_id'] = $customer_id;
-            $response['message'] = 'Registration successful! Trial started without payment processing.';
+            $response['message'] = 'Registration successful! Trial started (Stripe library not available).';
             
             echo json_encode($response, JSON_PRETTY_PRINT);
             exit();
