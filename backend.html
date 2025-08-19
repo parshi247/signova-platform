@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="keywords" content="electronic signature, digital signature, document signing, esignature, contract management, document automation">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signova Backend Services - API & Integration Hub</title>
+    <meta name="description" content="Signova Backend Services - Powerful APIs and integrations for electronic signature workflows">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            padding: 2rem 0;
+            border-bottom: 1px solid #334155;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .logo-text {
+            color: #e2e8f0;
+        }
+        
+        .logo-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0;
+        }
+        
+        .logo-subtitle {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            margin: 0;
+        }
+        
+        .status-badge {
+            background: #10b981;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .hero {
+            padding: 4rem 0;
+            text-align: center;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        }
+        
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .service-card {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card:hover {
+            border-color: #4285f4;
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(66, 133, 244, 0.1);
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
+        }
+        
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #e2e8f0;
+        }
+        
+        .service-desc {
+            color: #94a3b8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        
+        .service-features li {
+            color: #cbd5e1;
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+        
+        .service-btn {
+            background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .service-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(66, 133, 244, 0.3);
+        }
+        
+        .api-section {
+            background: #1e293b;
+            padding: 4rem 0;
+            margin-top: 4rem;
+        }
+        
+        .api-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #e2e8f0;
+        }
+        
+        .api-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .api-card {
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+        
+        .api-endpoint {
+            background: #334155;
+            color: #10b981;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .api-method {
+            background: #dc2626;
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+        
+        .api-method.get { background: #10b981; }
+        .api-method.post { background: #3b82f6; }
+        .api-method.put { background: #f59e0b; }
+        .api-method.delete { background: #dc2626; }
+        
+        .stats-section {
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #4285f4;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: #94a3b8;
+            font-size: 1.1rem;
+        }
+        
+        .footer {
+            background: #0f172a;
+            padding: 2rem 0;
+            border-top: 1px solid #334155;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .footer-link {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-link:hover {
+            color: #4285f4;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .api-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Signova",
+  "description": "AI-powered electronic signature platform",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "offers": {
+    "@type": "Offer",
+    "price": "79",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">S</div>
+                    <div class="logo-text">
+                        <h1 class="logo-title">Signova Backend</h1>
+                        <p class="logo-subtitle">API & Integration Services</p>
+                    </div>
+                </div>
+                <div class="status-badge">🟢 All Systems Operational</div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2 class="hero-title">Powerful Backend Services</h2>
+            <p class="hero-subtitle">
+                Enterprise-grade APIs and integrations powering the Signova electronic signature platform. 
+                Built for scale, security, and seamless integration.
+            </p>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🔗</div>
+                <h3 class="service-title">Signature API</h3>
+                <p class="service-desc">
+                    RESTful API for creating, sending, and managing electronic signature workflows programmatically.
+                </p>
+                <ul class="service-features">
+                    <li>Document upload and processing</li>
+                    <li>Multi-party signature workflows</li>
+                    <li>Real-time status tracking</li>
+                    <li>Webhook notifications</li>
+                    <li>Template management</li>
+                </ul>
+                <a href="#api-docs" class="service-btn">View API Documentation</a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🔐</div>
+                <h3 class="service-title">Authentication Service</h3>
+                <p class="service-desc">
+                    Secure authentication and authorization service with OAuth 2.0, JWT tokens, and multi-factor authentication.
+                </p>
+                <ul class="service-features">
+                    <li>OAuth 2.0 / OpenID Connect</li>
+                    <li>JWT token management</li>
+                    <li>Multi-factor authentication</li>
+                    <li>Role-based access control</li>
+                    <li>SSO integration</li>
+                </ul>
+                <a href="http://157.230.85.71" class="service-btn">Access Portal</a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3 class="service-title">Analytics Engine</h3>
+                <p class="service-desc">
+                    Advanced analytics and reporting service providing insights into document workflows and user behavior.
+                </p>
+                <ul class="service-features">
+                    <li>Real-time analytics dashboard</li>
+                    <li>Custom report generation</li>
+                    <li>Usage metrics and KPIs</li>
+                    <li>Performance monitoring</li>
+                    <li>Data export capabilities</li>
+                </ul>
+                <a href="http://157.245.243.236" class="service-btn">View Analytics</a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🔄</div>
+                <h3 class="service-title">Integration Hub</h3>
+                <p class="service-desc">
+                    Pre-built integrations with popular business tools and platforms for seamless workflow automation.
+                </p>
+                <ul class="service-features">
+                    <li>CRM integrations (Salesforce, HubSpot)</li>
+                    <li>Cloud storage (Google Drive, Dropbox)</li>
+                    <li>Business tools (Slack, Teams)</li>
+                    <li>Zapier automation</li>
+                    <li>Custom webhook support</li>
+                </ul>
+                <a href="#integrations" class="service-btn">Browse Integrations</a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📱</div>
+                <h3 class="service-title">Mobile SDK</h3>
+                <p class="service-desc">
+                    Native mobile SDKs for iOS and Android enabling seamless electronic signature experiences in mobile apps.
+                </p>
+                <ul class="service-features">
+                    <li>Native iOS and Android SDKs</li>
+                    <li>Touch-optimized signing</li>
+                    <li>Biometric authentication</li>
+                    <li>Offline capability</li>
+                    <li>Push notifications</li>
+                </ul>
+                <a href="http://104.131.94.209" class="service-btn">Mobile Framework</a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">⚡</div>
+                <h3 class="service-title">Workflow Engine</h3>
+                <p class="service-desc">
+                    Powerful workflow automation engine for complex document routing and approval processes.
+                </p>
+                <ul class="service-features">
+                    <li>Visual workflow builder</li>
+                    <li>Conditional routing logic</li>
+                    <li>Automated reminders</li>
+                    <li>Approval hierarchies</li>
+                    <li>Audit trail tracking</li>
+                </ul>
+                <a href="#workflows" class="service-btn">Create Workflows</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="api-section" id="api-docs">
+        <div class="container">
+            <h2 class="api-title">API Documentation</h2>
+            <p style="text-align: center; color: #94a3b8; margin-bottom: 2rem;">
+                RESTful APIs with comprehensive documentation and interactive testing
+            </p>
+            
+            <div class="api-grid">
+                <div class="api-card">
+                    <div class="api-endpoint">
+                        <span class="api-method get">GET</span>/api/v1/documents
+                    </div>
+                    <h4 style="color: #e2e8f0; margin-bottom: 0.5rem;">List Documents</h4>
+                    <p style="color: #94a3b8; font-size: 0.9rem;">Retrieve a list of all documents with pagination and filtering options.</p>
+                </div>
+
+                <div class="api-card">
+                    <div class="api-endpoint">
+                        <span class="api-method post">POST</span>/api/v1/documents
+                    </div>
+                    <h4 style="color: #e2e8f0; margin-bottom: 0.5rem;">Create Document</h4>
+                    <p style="color: #94a3b8; font-size: 0.9rem;">Upload and create a new document for signature workflow.</p>
+                </div>
+
+                <div class="api-card">
+                    <div class="api-endpoint">
+                        <span class="api-method post">POST</span>/api/v1/signatures/send
+                    </div>
+                    <h4 style="color: #e2e8f0; margin-bottom: 0.5rem;">Send for Signature</h4>
+                    <p style="color: #94a3b8; font-size: 0.9rem;">Send a document to recipients for electronic signature.</p>
+                </div>
+
+                <div class="api-card">
+                    <div class="api-endpoint">
+                        <span class="api-method get">GET</span>/api/v1/signatures/status/{id}
+                    </div>
+                    <h4 style="color: #e2e8f0; margin-bottom: 0.5rem;">Check Status</h4>
+                    <p style="color: #94a3b8; font-size: 0.9rem;">Get the current status of a signature request.</p>
+                </div>
+
+                <div class="api-card">
+                    <div class="api-endpoint">
+                        <span class="api-method post">POST</span>/api/v1/webhooks
+                    </div>
+                    <h4 style="color: #e2e8f0; margin-bottom: 0.5rem;">Configure Webhooks</h4>
+                    <p style="color: #94a3b8; font-size: 0.9rem;">Set up webhook endpoints for real-time notifications.</p>
+                </div>
+
+                <div class="api-card">
+                    <div class="api-endpoint">
+                        <span class="api-method get">GET</span>/api/v1/analytics/usage
+                    </div>
+                    <h4 style="color: #e2e8f0; margin-bottom: 0.5rem;">Usage Analytics</h4>
+                    <p style="color: #94a3b8; font-size: 0.9rem;">Retrieve detailed usage analytics and metrics.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="container">
+            <h2 class="api-title">Performance Metrics</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">99.9%</div>
+                    <div class="stat-label">Uptime</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">45ms</div>
+                    <div class="stat-label">Avg Response</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">10M+</div>
+                    <div class="stat-label">API Calls/Month</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">256-bit</div>
+                    <div class="stat-label">SSL Encryption</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="https://signova.ai" class="footer-link">Main Site</a>
+                <a href="http://157.230.85.71" class="footer-link">User Portal</a>
+                <a href="http://157.245.243.236" class="footer-link">Admin Center</a>
+                <a href="http://104.131.94.209" class="footer-link">Mobile Framework</a>
+                <a href="#api-docs" class="footer-link">API Documentation</a>
+                <a href="#integrations" class="footer-link">Integrations</a>
+            </div>
+            <p style="color: #64748b;">© 2025 Signova Backend Services. Enterprise-grade electronic signature infrastructure.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add loading animation for service buttons
+        document.querySelectorAll('.service-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                if (this.getAttribute('href').startsWith('#')) {
+                    return; // Let anchor links work normally
+                }
+                
+                const originalText = this.textContent;
+                this.textContent = 'Loading...';
+                this.style.opacity = '0.7';
+                
+                setTimeout(() => {
+                    this.textContent = originalText;
+                    this.style.opacity = '1';
+                }, 1000);
+            });
+        });
+
+        // Simulate real-time stats updates
+        function updateStats() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            statNumbers.forEach(stat => {
+                if (stat.textContent.includes('ms')) {
+                    const currentValue = parseInt(stat.textContent);
+                    const newValue = currentValue + Math.floor(Math.random() * 10 - 5);
+                    stat.textContent = Math.max(30, Math.min(60, newValue)) + 'ms';
+                }
+            });
+        }
+
+        // Update stats every 30 seconds
+        setInterval(updateStats, 30000);
+
+        // Add hover effects for API cards
+        document.querySelectorAll('.api-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+                this.style.boxShadow = '0 10px 30px rgba(66, 133, 244, 0.1)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
+

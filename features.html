@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="keywords" content="electronic signature, digital signature, document signing, esignature, contract management, document automation">
-<meta name="description" content="Signova: Revolutionary AI-powered electronic signature platform. Sign documents 10x faster with advanced automation. Start free trial today!">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signova - Electronic Signature Platform | Sign Documents Online</title>
+    <title>Features - Signova Electronic Signature Platform</title>
     <style>
         /* Apple-Inspired Design System */
         :root {
@@ -46,7 +44,7 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Navigation - Apple Style */
+        /* Navigation - Same as other pages */
         .header {
             background: rgba(255, 255, 255, 0.8);
             backdrop-filter: saturate(180%) blur(20px);
@@ -124,7 +122,8 @@
             position: relative;
         }
 
-        .nav-links a:hover {
+        .nav-links a:hover,
+        .nav-links a.active {
             color: var(--primary-blue);
             background: rgba(0, 122, 255, 0.05);
         }
@@ -175,8 +174,8 @@
             transform: translateY(-1px);
         }
 
-        /* Hero Section - Apple Style */
-        .hero {
+        /* Features Page Specific Styles */
+        .features-hero {
             background: linear-gradient(135deg, var(--surface-tertiary) 0%, var(--surface-secondary) 100%);
             padding: 140px 0 var(--spacing-2xl);
             text-align: center;
@@ -184,7 +183,7 @@
             overflow: hidden;
         }
 
-        .hero::before {
+        .features-hero::before {
             content: '';
             position: absolute;
             top: 0;
@@ -194,7 +193,7 @@
             background: radial-gradient(circle at 50% 50%, rgba(0, 122, 255, 0.03) 0%, transparent 70%);
         }
 
-        .hero-content {
+        .features-hero-content {
             max-width: 800px;
             margin: 0 auto;
             padding: 0 var(--spacing-lg);
@@ -202,8 +201,8 @@
             z-index: 2;
         }
 
-        .hero h1 {
-            font-size: clamp(48px, 6vw, 72px);
+        .features-hero h1 {
+            font-size: clamp(48px, 6vw, 64px);
             font-weight: 700;
             letter-spacing: -2px;
             line-height: 1.1;
@@ -211,7 +210,7 @@
             color: var(--text-primary);
         }
 
-        .hero p {
+        .features-hero p {
             font-size: 21px;
             color: var(--text-secondary);
             margin-bottom: var(--spacing-xl);
@@ -219,60 +218,8 @@
             font-weight: 400;
         }
 
-        .hero-buttons {
-            display: flex;
-            gap: var(--spacing-md);
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: var(--spacing-2xl);
-        }
-
-        .btn-large {
-            padding: 16px 32px;
-            font-size: 19px;
-            min-width: 180px;
-        }
-
-        /* Stats Section */
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: var(--spacing-xl);
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 var(--spacing-lg);
-        }
-
-        .stat {
-            text-align: center;
-            padding: var(--spacing-md);
-            background: var(--surface-primary);
-            border-radius: var(--radius-large);
-            box-shadow: var(--shadow-light);
-            transition: transform 0.2s ease;
-        }
-
-        .stat:hover {
-            transform: translateY(-4px);
-        }
-
-        .stat-number {
-            font-size: 36px;
-            font-weight: 700;
-            color: var(--primary-blue);
-            display: block;
-            letter-spacing: -1px;
-        }
-
-        .stat-label {
-            font-size: 17px;
-            color: var(--text-secondary);
-            font-weight: 500;
-            margin-top: var(--spacing-xs);
-        }
-
-        /* Features Section */
-        .features {
+        /* Features Sections */
+        .features-section {
             padding: var(--spacing-2xl) 0;
             background: var(--surface-primary);
         }
@@ -299,28 +246,37 @@
             margin-top: var(--spacing-xl);
         }
 
-        .feature {
+        .feature-card {
             background: var(--surface-primary);
-            padding: var(--spacing-xl);
+            border: 2px solid var(--border-light);
             border-radius: var(--radius-large);
-            box-shadow: var(--shadow-light);
-            border: 1px solid var(--border-light);
-            transition: all 0.3s ease;
+            padding: var(--spacing-xl);
             text-align: left;
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-light);
         }
 
-        .feature:hover {
-            transform: translateY(-6px);
+        .feature-card:hover {
+            transform: translateY(-8px);
             box-shadow: var(--shadow-medium);
+            border-color: var(--primary-blue);
         }
 
         .feature-icon {
-            font-size: 48px;
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #5856D6 100%);
+            border-radius: var(--radius-medium);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
             margin-bottom: var(--spacing-md);
-            display: block;
+            box-shadow: var(--shadow-light);
         }
 
-        .feature h3 {
+        .feature-card h3 {
             font-size: 24px;
             font-weight: 600;
             margin-bottom: var(--spacing-sm);
@@ -328,14 +284,86 @@
             letter-spacing: -0.5px;
         }
 
-        .feature p {
+        .feature-card p {
             color: var(--text-secondary);
             font-size: 17px;
             line-height: 1.6;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .feature-list li {
+            padding: var(--spacing-xs) 0;
+            font-size: 16px;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            color: var(--primary-blue);
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        /* Detailed Features Section */
+        .detailed-features {
+            background: var(--surface-secondary);
+            padding: var(--spacing-2xl) 0;
+        }
+
+        .feature-detail {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-2xl);
+            align-items: center;
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .feature-detail:nth-child(even) {
+            direction: rtl;
+        }
+
+        .feature-detail:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .feature-content h3 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-md);
+            letter-spacing: -1px;
+        }
+
+        .feature-content p {
+            font-size: 19px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .feature-visual {
+            background: var(--surface-primary);
+            border-radius: var(--radius-large);
+            padding: var(--spacing-xl);
+            box-shadow: var(--shadow-light);
+            text-align: center;
+        }
+
+        .feature-visual-icon {
+            font-size: 80px;
+            margin-bottom: var(--spacing-md);
         }
 
         /* CTA Section */
-        .cta {
+        .cta-section {
             background: linear-gradient(135deg, var(--primary-blue) 0%, #5856D6 100%);
             color: white;
             padding: var(--spacing-2xl) 0;
@@ -344,7 +372,7 @@
             overflow: hidden;
         }
 
-        .cta::before {
+        .cta-section::before {
             content: '';
             position: absolute;
             top: 0;
@@ -359,14 +387,14 @@
             z-index: 2;
         }
 
-        .cta h2 {
+        .cta-section h2 {
             font-size: clamp(36px, 4vw, 48px);
             font-weight: 700;
             letter-spacing: -1px;
             margin-bottom: var(--spacing-md);
         }
 
-        .cta p {
+        .cta-section p {
             font-size: 21px;
             margin-bottom: var(--spacing-xl);
             opacity: 0.9;
@@ -415,18 +443,8 @@
                 width: 100%;
             }
             
-            .hero {
+            .features-hero {
                 padding: 120px 0 var(--spacing-xl);
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .stats {
-                grid-template-columns: repeat(2, 1fr);
-                gap: var(--spacing-md);
             }
             
             .features-grid {
@@ -434,8 +452,13 @@
                 gap: var(--spacing-md);
             }
             
-            .feature {
-                padding: var(--spacing-md);
+            .feature-detail {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-lg);
+            }
+            
+            .feature-detail:nth-child(even) {
+                direction: ltr;
             }
         }
 
@@ -444,7 +467,7 @@
                 padding: var(--spacing-xs);
             }
             
-            .hero-content {
+            .features-hero-content {
                 padding: 0 var(--spacing-md);
             }
             
@@ -452,27 +475,11 @@
                 padding: 0 var(--spacing-md);
             }
             
-            .stats {
-                grid-template-columns: 1fr;
+            .feature-card {
+                padding: var(--spacing-md);
             }
         }
     </style>
-<script src="mobile_redirect.js"></script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "Signova",
-  "description": "AI-powered electronic signature platform",
-  "applicationCategory": "BusinessApplication",
-  "operatingSystem": "Web",
-  "offers": {
-    "@type": "Offer",
-    "price": "79",
-    "priceCurrency": "USD"
-  }
-}
-</script>
 </head>
 <body>
     <header class="header">
@@ -484,7 +491,7 @@
                 <span class="logo-text">Signova</span>
             </a>
             <ul class="nav-links">
-                <li><a href="features.html">Features</a></li>
+                <li><a href="features.html" class="active">Features</a></li>
                 <li><a href="pricing.html">Pricing</a></li>
                 <li><a href="security.html">Security</a></li>
                 <li><a href="templates.html">Templates</a></li>
@@ -497,80 +504,144 @@
         </nav>
     </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Electronic Signatures Made Simple</h1>
-            <p>Sign, send, and manage documents with the most trusted electronic signature platform. Legally binding signatures in minutes, not days.</p>
-            <div class="hero-buttons">
-                <a href="http://157.230.85.71" class="btn btn-primary btn-large">Start Free Trial</a>
-                <a href="#demo" class="btn btn-secondary btn-large">Watch Demo</a>
-            </div>
-        </div>
-        
-        <div class="stats">
-            <div class="stat">
-                <span class="stat-number">2.5M+</span>
-                <span class="stat-label">Documents Signed Today</span>
-            </div>
-            <div class="stat">
-                <span class="stat-number">50K+</span>
-                <span class="stat-label">Active Users</span>
-            </div>
-            <div class="stat">
-                <span class="stat-number">99.9%</span>
-                <span class="stat-label">Uptime Guarantee</span>
-            </div>
-            <div class="stat">
-                <span class="stat-number">5 Min</span>
-                <span class="stat-label">Average Signing Time</span>
-            </div>
+    <section class="features-hero">
+        <div class="features-hero-content">
+            <h1>Powerful Features</h1>
+            <p>Everything you need to streamline your document signing process with enterprise-grade security and seamless integrations.</p>
         </div>
     </section>
 
-    <section id="features" class="features">
+    <section class="features-section">
         <div class="container">
-            <h2 class="section-title">Everything You Need for Electronic Signatures</h2>
+            <h2 class="section-title">Core Features</h2>
             <div class="features-grid">
-                <div class="feature">
+                <div class="feature-card">
                     <div class="feature-icon">📄</div>
-                    <h3>Upload & Sign</h3>
-                    <p>Upload any document format and add legally binding electronic signatures in seconds. Supports PDF, Word, Excel, and more.</p>
+                    <h3>Document Management</h3>
+                    <p>Upload, organize, and manage all your documents in one secure location.</p>
+                    <ul class="feature-list">
+                        <li>Support for PDF, Word, Excel, and more</li>
+                        <li>Drag-and-drop file uploads</li>
+                        <li>Document versioning and history</li>
+                        <li>Advanced search and filtering</li>
+                        <li>Bulk document operations</li>
+                    </ul>
                 </div>
-                <div class="feature">
+
+                <div class="feature-card">
+                    <div class="feature-icon">✍️</div>
+                    <h3>Electronic Signatures</h3>
+                    <p>Legally binding electronic signatures with advanced authentication options.</p>
+                    <ul class="feature-list">
+                        <li>Click-to-sign simplicity</li>
+                        <li>Draw, type, or upload signatures</li>
+                        <li>Multi-party signing workflows</li>
+                        <li>Signature verification</li>
+                        <li>Biometric signature capture</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Workflow Automation</h3>
+                    <p>Automate your document processes with intelligent routing and notifications.</p>
+                    <ul class="feature-list">
+                        <li>Custom approval workflows</li>
+                        <li>Automatic reminders and notifications</li>
+                        <li>Conditional routing logic</li>
+                        <li>Integration with business systems</li>
+                        <li>Real-time status tracking</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
                     <div class="feature-icon">👥</div>
-                    <h3>Multi-Party Signing</h3>
-                    <p>Send documents to multiple signers with custom signing order. Track progress and get notified when complete.</p>
+                    <h3>Team Collaboration</h3>
+                    <p>Work together seamlessly with advanced team management and sharing features.</p>
+                    <ul class="feature-list">
+                        <li>Team workspaces and folders</li>
+                        <li>Role-based permissions</li>
+                        <li>Real-time collaboration</li>
+                        <li>Comment and annotation tools</li>
+                        <li>Activity feeds and notifications</li>
+                    </ul>
                 </div>
-                <div class="feature">
-                    <div class="feature-icon">📋</div>
-                    <h3>Templates</h3>
-                    <p>Create reusable templates for contracts, agreements, and forms. Save time with pre-configured signature fields.</p>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Analytics & Reporting</h3>
+                    <p>Gain insights into your document processes with comprehensive analytics.</p>
+                    <ul class="feature-list">
+                        <li>Document completion rates</li>
+                        <li>Signing time analytics</li>
+                        <li>User activity reports</li>
+                        <li>Custom dashboard views</li>
+                        <li>Export and scheduling options</li>
+                    </ul>
                 </div>
-                <div class="feature">
-                    <div class="feature-icon">🔒</div>
-                    <h3>Bank-Level Security</h3>
-                    <p>256-bit SSL encryption, SOC 2 compliance, and comprehensive audit trails ensure your documents are secure.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">📱</div>
-                    <h3>Mobile Ready</h3>
-                    <p>Sign documents anywhere, anytime on any device. Native mobile apps for iOS and Android.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">⚡</div>
-                    <h3>API Integration</h3>
-                    <p>Integrate electronic signatures into your existing workflow with our powerful REST API and webhooks.</p>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔗</div>
+                    <h3>API & Integrations</h3>
+                    <p>Connect Signova with your existing tools and build custom integrations.</p>
+                    <ul class="feature-list">
+                        <li>RESTful API with webhooks</li>
+                        <li>CRM and ERP integrations</li>
+                        <li>Cloud storage connections</li>
+                        <li>Single sign-on (SSO)</li>
+                        <li>Custom app development</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="cta">
+    <section class="detailed-features">
+        <div class="container">
+            <div class="feature-detail">
+                <div class="feature-content">
+                    <h3>Smart Document Processing</h3>
+                    <p>Our AI-powered engine automatically detects signature fields, form elements, and document structure to streamline your workflow.</p>
+                    <p>Save hours of manual setup with intelligent field detection and automatic document preparation.</p>
+                </div>
+                <div class="feature-visual">
+                    <div class="feature-visual-icon">🤖</div>
+                    <h4>AI-Powered Automation</h4>
+                </div>
+            </div>
+
+            <div class="feature-detail">
+                <div class="feature-content">
+                    <h3>Mobile-First Experience</h3>
+                    <p>Sign documents anywhere, anytime with our native mobile apps for iOS and Android. Full feature parity with desktop experience.</p>
+                    <p>Optimized for touch interactions with offline capabilities and biometric authentication.</p>
+                </div>
+                <div class="feature-visual">
+                    <div class="feature-visual-icon">📱</div>
+                    <h4>Native Mobile Apps</h4>
+                </div>
+            </div>
+
+            <div class="feature-detail">
+                <div class="feature-content">
+                    <h3>Enterprise Security</h3>
+                    <p>Bank-level encryption, comprehensive audit trails, and compliance with global standards including SOC 2, GDPR, and HIPAA.</p>
+                    <p>Advanced authentication options including 2FA, SSO, and biometric verification.</p>
+                </div>
+                <div class="feature-visual">
+                    <div class="feature-visual-icon">🛡️</div>
+                    <h4>Enterprise-Grade Security</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
         <div class="container">
             <div class="cta-content">
-                <h2>Ready to Go Paperless?</h2>
-                <p>Join thousands of businesses already using Signova for their electronic signature needs.</p>
-                <a href="http://157.230.85.71" class="btn-cta">Start Free Trial - No Credit Card Required</a>
+                <h2>Ready to Experience These Features?</h2>
+                <p>Start your free trial today and see how Signova can transform your document workflow.</p>
+                <a href="http://157.230.85.71" class="btn-cta">Start Free Trial</a>
             </div>
         </div>
     </section>

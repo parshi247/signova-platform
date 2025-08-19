@@ -1,0 +1,155 @@
+{
+  "updated": "2025-08-12T10:51:55.659725Z",
+  "tiers": [
+    {
+      "product_id": "prod_SoblfsrBnBobLV",
+      "name": "Signova Enterprise",
+      "price_id": "price_1RsyXsBMcX9zVrDCjdWjhhsX",
+      "unit_amount": 19900,
+      "currency": "usd",
+      "recurring": {
+        "interval": "month",
+        "interval_count": 1,
+        "meter": null,
+        "trial_period_days": null,
+        "usage_type": "licensed"
+      },
+      "active": true
+    },
+    {
+      "product_id": "prod_SoblCzSgZQ1K6W",
+      "name": "Signova Business",
+      "price_id": "price_1RsyXrBMcX9zVrDC8ImB9P7x",
+      "unit_amount": 7900,
+      "currency": "usd",
+      "recurring": {
+        "interval": "month",
+        "interval_count": 1,
+        "meter": null,
+        "trial_period_days": null,
+        "usage_type": "licensed"
+      },
+      "active": true
+    },
+    {
+      "product_id": "prod_SoblE4DomGCwXK",
+      "name": "Signova Professional",
+      "price_id": "price_1RsyXrBMcX9zVrDCAixEiT7M",
+      "unit_amount": 2900,
+      "currency": "usd",
+      "recurring": {
+        "interval": "month",
+        "interval_count": 1,
+        "meter": null,
+        "trial_period_days": null,
+        "usage_type": "licensed"
+      },
+      "active": true
+    },
+    {
+      "product_id": "prod_Sobl7y8CX7SfcL",
+      "name": "Signova Starter",
+      "price_id": "price_1RsyXqBMcX9zVrDC1RtnecD8",
+      "unit_amount": 900,
+      "currency": "usd",
+      "recurring": {
+        "interval": "month",
+        "interval_count": 1,
+        "meter": null,
+        "trial_period_days": null,
+        "usage_type": "licensed"
+      },
+      "active": true
+    },
+    {
+      "product_id": "prod_SoblwJoDD3rOdI",
+      "name": "Signova Enterprise",
+      "price_id": "price_1RsyXmBMcX9zVrDC6xTxWck2",
+      "unit_amount": 19900,
+      "currency": "usd",
+      "recurring": {
+        "interval": "month",
+        "interval_count": 1,
+        "meter": null,
+        "trial_period_days": null,
+        "usage_type": "licensed"
+      },
+      "active": true
+    },
+    {
+      "product_id": "prod_SoblNJttuICDz1",
+      "name": "Signova Business",
+      "price_id": "price_1RsyXmBMcX9zVrDCN7wARs3X",
+      "unit_amount": 7900,
+      "currency": "usd",
+      "recurring": {
+        "interval": "month",
+        "interval_count": 1,
+        "meter": null,
+        "trial_period_days": null,
+        "usage_type": "licensed"
+      },
+      "active": true
+    },
+    {
+      "product_id": "prod_SoblIHko2mJD1g",
+      "name": "Signova Professional",
+      "price_id": "price_1RsyXmBMcX9zVrDCIBEA3hjk",
+      "unit_amount": 2900,
+      "currency": "usd",
+      "recurring": {
+        "interval": "month",
+        "interval_count": 1,
+        "meter": null,
+        "trial_period_days": null,
+        "usage_type": "licensed"
+      },
+      "active": true
+    },
+    {
+      "product_id": "prod_Soblo8j7n2alXF",
+      "name": "Signova Starter",
+      "price_id": "price_1RsyXlBMcX9zVrDCGFG2j31a",
+      "unit_amount": 900,
+      "currency": "usd",
+      "recurring": {
+        "interval": "month",
+        "interval_count": 1,
+        "meter": null,
+        "trial_period_days": null,
+        "usage_type": "licensed"
+      },
+      "active": true
+    },
+    {
+      "product_id": "prod_Sm1siwJWmMuo8G",
+      "name": "Signova Quantum Plan",
+      "price_id": "price_1RqToPBMcX9zVrDCy9mghcbn",
+      "unit_amount": 149900,
+      "currency": "usd",
+      "recurring": {
+        "interval": "month",
+        "interval_count": 1,
+        "meter": null,
+        "trial_period_days": null,
+        "usage_type": "licensed"
+      },
+      "active": true
+    },
+    {
+      "product_id": "prod_Sm1sd6NddGrNdr",
+      "name": "Signova Enterprise Plan",
+      "price_id": "price_1RqToPBMcX9zVrDCwHmHgSFx",
+      "unit_amount": 49900,
+      "currency": "usd",
+      "recurring": {
+        "interval": "month",
+        "interval_count": 1,
+        "meter": null,
+        "trial_period_days": null,
+        "usage_type": "licensed"
+      },
+      "active": true
+    }
+  ]
+}

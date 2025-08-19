@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - Signova Electronic Signature Platform</title>
+    <style>
+        /* Apple-Inspired Design System */
+        :root {
+            --primary-blue: #007AFF;
+            --primary-blue-hover: #0056CC;
+            --text-primary: #1D1D1F;
+            --text-secondary: #86868B;
+            --surface-primary: #FFFFFF;
+            --surface-secondary: #F5F5F7;
+            --surface-tertiary: #FBFBFD;
+            --border-light: #D2D2D7;
+            --shadow-light: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-medium: 0 8px 40px rgba(0, 0, 0, 0.12);
+            --radius-small: 12px;
+            --radius-medium: 16px;
+            --radius-large: 24px;
+            --spacing-xs: 8px;
+            --spacing-sm: 16px;
+            --spacing-md: 24px;
+            --spacing-lg: 32px;
+            --spacing-xl: 48px;
+            --spacing-2xl: 64px;
+            --font-system: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-system);
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--surface-primary);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Navigation - Same as home page */
+        .header {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid var(--border-light);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-sm) var(--spacing-lg);
+            height: 72px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            text-decoration: none;
+            transition: transform 0.2s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.02);
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #5856D6 100%);
+            border-radius: var(--radius-small);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-light);
+        }
+
+        .s-icon {
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--text-primary);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--spacing-lg);
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 17px;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--radius-small);
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary-blue);
+            background: rgba(0, 122, 255, 0.05);
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: var(--spacing-sm);
+            align-items: center;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: var(--radius-medium);
+            font-weight: 600;
+            font-size: 17px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 120px;
+            font-family: var(--font-system);
+        }
+
+        .btn-primary {
+            background: var(--primary-blue);
+            color: white;
+            box-shadow: var(--shadow-light);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-blue-hover);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-blue);
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        /* Pricing Page Specific Styles */
+        .pricing-hero {
+            background: linear-gradient(135deg, var(--surface-tertiary) 0%, var(--surface-secondary) 100%);
+            padding: 140px 0 var(--spacing-2xl);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(0, 122, 255, 0.03) 0%, transparent 70%);
+        }
+
+        .pricing-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+            position: relative;
+            z-index: 2;
+        }
+
+        .pricing-hero h1 {
+            font-size: clamp(48px, 6vw, 64px);
+            font-weight: 700;
+            letter-spacing: -2px;
+            line-height: 1.1;
+            margin-bottom: var(--spacing-md);
+            color: var(--text-primary);
+        }
+
+        .pricing-hero p {
+            font-size: 21px;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-xl);
+            line-height: 1.5;
+            font-weight: 400;
+        }
+
+        /* Pricing Cards */
+        .pricing-section {
+            padding: var(--spacing-2xl) 0;
+            background: var(--surface-primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+
+        .pricing-card {
+            background: var(--surface-primary);
+            border: 2px solid var(--border-light);
+            border-radius: var(--radius-large);
+            padding: var(--spacing-xl);
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-light);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--primary-blue);
+            background: linear-gradient(135deg, rgba(0, 122, 255, 0.02) 0%, rgba(88, 86, 214, 0.02) 100%);
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured::before {
+            content: 'Most Popular';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-blue);
+            color: white;
+            padding: var(--spacing-xs) var(--spacing-md);
+            border-radius: var(--radius-medium);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .plan-name {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-sm);
+            letter-spacing: -0.5px;
+        }
+
+        .plan-price {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: var(--spacing-xs);
+            letter-spacing: -2px;
+        }
+
+        .plan-period {
+            font-size: 17px;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .plan-description {
+            font-size: 17px;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-lg);
+            line-height: 1.5;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: var(--spacing-xl);
+            text-align: left;
+        }
+
+        .plan-features li {
+            padding: var(--spacing-xs) 0;
+            font-size: 17px;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .plan-features li::before {
+            content: '✓';
+            color: var(--primary-blue);
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .plan-button {
+            width: 100%;
+            padding: 16px 24px;
+            font-size: 17px;
+            font-weight: 600;
+            border: none;
+            border-radius: var(--radius-medium);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-family: var(--font-system);
+        }
+
+        .plan-button.primary {
+            background: var(--primary-blue);
+            color: white;
+            box-shadow: var(--shadow-light);
+        }
+
+        .plan-button.primary:hover {
+            background: var(--primary-blue-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .plan-button.secondary {
+            background: transparent;
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .plan-button.secondary:hover {
+            background: var(--primary-blue);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Enterprise Section */
+        .enterprise-section {
+            background: var(--surface-secondary);
+            padding: var(--spacing-2xl) 0;
+            text-align: center;
+        }
+
+        .enterprise-card {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--surface-primary);
+            border-radius: var(--radius-large);
+            padding: var(--spacing-2xl);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .enterprise-card h3 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-md);
+            letter-spacing: -1px;
+        }
+
+        .enterprise-card p {
+            font-size: 19px;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-xl);
+            line-height: 1.5;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                padding: var(--spacing-sm);
+                gap: var(--spacing-sm);
+                height: auto;
+            }
+            
+            .nav-links {
+                display: flex;
+                flex-direction: column;
+                gap: var(--spacing-sm);
+                width: 100%;
+                text-align: center;
+            }
+            
+            .auth-buttons {
+                justify-content: center;
+                width: 100%;
+            }
+            
+            .pricing-hero {
+                padding: 120px 0 var(--spacing-xl);
+            }
+            
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-md);
+            }
+            
+            .pricing-card.featured {
+                transform: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav {
+                padding: var(--spacing-xs);
+            }
+            
+            .pricing-hero-content {
+                padding: 0 var(--spacing-md);
+            }
+            
+            .container {
+                padding: 0 var(--spacing-md);
+            }
+            
+            .pricing-card {
+                padding: var(--spacing-md);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="/" class="logo">
+                <div class="logo-icon">
+                    <div class="s-icon">S</div>
+                </div>
+                <span class="logo-text">Signova</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="features.html">Features</a></li>
+                <li><a href="pricing.html" class="active">Pricing</a></li>
+                <li><a href="security.html">Security</a></li>
+                <li><a href="templates.html">Templates</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="signin.html" class="btn btn-secondary">Sign In</a>
+                <a href="http://157.230.85.71" class="btn btn-primary">Start Free Trial</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="pricing-hero">
+        <div class="pricing-hero-content">
+            <h1>Simple, Transparent Pricing</h1>
+            <p>Choose the perfect plan for your business needs. All plans include our core features with no hidden fees.</p>
+        </div>
+    </section>
+
+    <section class="pricing-section">
+        <div class="container">
+            <div class="pricing-grid">
+                <!-- Starter Plan -->
+                <div class="pricing-card">
+                    <h3 class="plan-name">Starter</h3>
+                    <div class="plan-price">$9</div>
+                    <div class="plan-period">per month</div>
+                    <p class="plan-description">Perfect for individuals and small teams getting started with electronic signatures.</p>
+                    <ul class="plan-features">
+                        <li>5 documents per month</li>
+                        <li>Basic electronic signatures</li>
+                        <li>Email support</li>
+                        <li>Mobile app access</li>
+                        <li>Basic templates</li>
+                    </ul>
+                    <a href="http://157.230.85.71" class="plan-button secondary">Get Started</a>
+                </div>
+
+                <!-- Professional Plan -->
+                <div class="pricing-card featured">
+                    <h3 class="plan-name">Professional</h3>
+                    <div class="plan-price">$29</div>
+                    <div class="plan-period">per month</div>
+                    <p class="plan-description">Ideal for growing businesses that need advanced features and better support.</p>
+                    <ul class="plan-features">
+                        <li>50 documents per month</li>
+                        <li>Advanced signatures & fields</li>
+                        <li>Priority email support</li>
+                        <li>Custom branding</li>
+                        <li>Advanced templates</li>
+                        <li>Bulk sending</li>
+                        <li>API access</li>
+                    </ul>
+                    <a href="http://157.230.85.71" class="plan-button primary">Start Free Trial</a>
+                </div>
+
+                <!-- Business Plan -->
+                <div class="pricing-card">
+                    <h3 class="plan-name">Business</h3>
+                    <div class="plan-price">$79</div>
+                    <div class="plan-period">per month</div>
+                    <p class="plan-description">Comprehensive solution for established businesses with high-volume needs.</p>
+                    <ul class="plan-features">
+                        <li>200 documents per month</li>
+                        <li>All Professional features</li>
+                        <li>Phone & chat support</li>
+                        <li>Advanced integrations</li>
+                        <li>Team management</li>
+                        <li>Advanced analytics</li>
+                        <li>Custom workflows</li>
+                        <li>SSO integration</li>
+                    </ul>
+                    <a href="http://157.230.85.71" class="plan-button secondary">Get Started</a>
+                </div>
+
+                <!-- Enterprise Plan -->
+                <div class="pricing-card">
+                    <h3 class="plan-name">Enterprise</h3>
+                    <div class="plan-price">$199</div>
+                    <div class="plan-period">per month</div>
+                    <p class="plan-description">Enterprise-grade solution with unlimited documents and premium support.</p>
+                    <ul class="plan-features">
+                        <li>Unlimited documents</li>
+                        <li>All Business features</li>
+                        <li>24/7 dedicated support</li>
+                        <li>Advanced security controls</li>
+                        <li>Custom integrations</li>
+                        <li>Compliance reporting</li>
+                        <li>White-label options</li>
+                        <li>SLA guarantee</li>
+                    </ul>
+                    <a href="http://157.230.85.71" class="plan-button primary">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="enterprise-section">
+        <div class="container">
+            <div class="enterprise-card">
+                <h3>Need Something More?</h3>
+                <p>For large enterprises with custom requirements, we offer tailored solutions including on-premise deployment, custom integrations, and dedicated support teams.</p>
+                <a href="contact.html" class="plan-button primary">Contact Enterprise Sales</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
