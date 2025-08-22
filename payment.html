@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="keywords" content="electronic signature, digital signature, document signing, esignature, contract management, document automation">
+<meta name="description" content="Signova: Revolutionary AI-powered electronic signature platform. Sign documents 10x faster with advanced automation. Start free trial today!">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Signova - Complete Your Purchase</title>
+    <script src="https://js.stripe.com/v3/"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 10px;
+        }
+        
+        .payment-container {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 500px;
+            width: 100%;
+            margin: 20px auto;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .logo { text-align: center; margin-bottom: 30px; }
+        .logo h1 { color: #667eea; font-size: 28px; }
+        
+        .plan-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .plan-name { font-size: 1.5rem; font-weight: bold; color: #333; margin-bottom: 10px; }
+        .plan-price { font-size: 2.5rem; font-weight: bold; color: #667eea; margin-bottom: 10px; }
+        .plan-price span { font-size: 1rem; color: #666; }
+        .plan-type { 
+            display: inline-block; 
+            background: #28a745; 
+            color: white; 
+            padding: 5px 15px; 
+            border-radius: 20px; 
+            font-size: 0.9rem; 
+            margin-bottom: 15px;
+        }
+        .plan-type.trial { background: #17a2b8; }
+        
+        .form-group { margin-bottom: 20px; }
+        .form-group label { 
+            display: block; 
+            margin-bottom: 8px; 
+            font-weight: 600; 
+            color: #333;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        #card-element {
+            padding: 12px 15px;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            background: white;
+        }
+        
+        .submit-button {
+            width: 100%;
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .submit-button:hover { background: #5a6fd8; }
+        .submit-button:disabled { background: #ccc; cursor: not-allowed; }
+        
+        .loading { display: none; text-align: center; color: #667eea; }
+        .success { display: none; color: #28a745; text-align: center; margin-top: 15px; }
+        .error { display: none; color: #dc3545; text-align: center; margin-top: 15px; }
+        
+        .plan-select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            font-size: 16px;
+            background: white;
+        }
+        
+        .features {
+            text-align: left;
+            margin-top: 15px;
+        }
+        
+        .features ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .features li {
+            padding: 5px 0;
+            color: #666;
+        }
+        
+        .features li:before {
+            content: "✓";
+            color: #28a745;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+    </style>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="js/config/pricing.js"></script>
+    <script src="js/dynamic-pricing.js"></script>
+    <script src="js/stripe-integration.js"></script>
+</head>
+<body>
+    <div class="payment-container">
+        <div class="logo">
+            <h1>Signova</h1>
+        </div>
+        
+        <div class="plan-info plan-details">
+            <div class="plan-name" id="planName">Professional Plan</div>
+            <div class="plan-price" id="planPrice">$29<span>/month</span></div>
+            <div class="plan-type" id="planType">Monthly Subscription</div>
+            
+            <div class="features">
+                <ul id="planFeatures">
+                    <li>1,000 documents per month</li>
+                    <li>Advanced signatures & fields</li>
+                    <li>Priority email support</li>
+                    <li>Custom branding</li>
+                    <li>Advanced templates</li>
+                    <li>API access</li>
+                </ul>
+            </div>
+        </div>
+        
+        <form id="payment-form">
+            <div class="form-group">
+                <label for="planSelect">Select Plan:</label>
+                <select id="plan-select">
+                    <option value="starter">Starter - $9/month</option>
+                    <option value="professional" selected>Professional - $29/month</option>
+                    <option value="business">Business - $79/month</option>
+                    <option value="enterprise">Enterprise - $199/month</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="company">Company (Optional):</label>
+                <input type="text" id="company" class="form-control">
+            </div>
+            
+            <button type="submit" id="submitButton" class="submit-button">
+                Complete Purchase - $29/month
+            </button>
+            
+            <div class="loading" id="loading">Processing payment...</div>
+            <div class="success" id="successMessage"></div>
+            <div class="error" id="errorMessage"></div>
+        </form>
+    </div>
+
+    <script>
+        // Initialize Stripe with live publishable key
+        const stripe = Stripe('pk_live_51RbQe9BMcX9zVrDCSDIqDbdpQ8zIbpo9d4QWT2hyubtqAFBvocnoupXOQbE9cu30AxvWKodzi79ohJVRNFqeGZ5Q00lSG0Cowv');
+        
+        // Get URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const selectedPlan = urlParams.get('plan') || 'professional';
+        const purchaseType = urlParams.get('type') || 'subscription';
+        
+        // Plan configurations matching our backend
+        const plans = {
+            starter: { 
+                name: 'Starter Plan', 
+                price: '$9', 
+                amount: 900,
+                features: [
+                    '100 documents per month',
+                    'Basic electronic signatures',
+                    'Email support',
+                    'Mobile app access',
+                    'Basic templates',
+                    'Standard security'
+                ]
+            },
+            professional: { 
+                name: 'Professional Plan', 
+                price: '$29', 
+                amount: 2900,
+                features: [
+                    '1,000 documents per month',
+                    'Advanced signatures & fields',
+                    'Priority email support',
+                    'Custom branding',
+                    'Advanced templates',
+                    'Bulk sending',
+                    'API access'
+                ]
+            },
+            business: { 
+                name: 'Business Plan', 
+                price: '$79', 
+                amount: 7900,
+                features: [
+                    '10,000 documents per month',
+                    'All Professional features',
+                    'Phone & chat support',
+                    'Advanced integrations',
+                    'Team management',
+                    'Advanced analytics',
+                    'Custom workflows',
+                    'SSO integration'
+                ]
+            },
+            enterprise: { 
+                name: 'Enterprise Plan', 
+                price: '$199', 
+                amount: 19900,
+                features: [
+                    'Unlimited documents',
+                    'All Business features',
+                    '24/7 dedicated support',
+                    'Advanced security controls',
+                    'Custom integrations',
+                    'Compliance reporting',
+                    'White-label options',
+                    'SLA guarantee'
+                ]
+            }
+        };
+        
+        // Update UI based on selected plan
+        function updatePlanDisplay(plan) {
+            const planInfo = plans[plan];
+            document.getElementById('planName').textContent = planInfo.name;
+            document.getElementById('planPrice').innerHTML = `${planInfo.price}<span>/month</span>`;
+            document.getElementById('submitButton').textContent = `Complete Purchase - ${planInfo.price}/month`;
+            document.getElementById('planSelect').value = plan;
+            
+            // Update features
+            const featuresElement = document.getElementById('planFeatures');
+            featuresElement.innerHTML = planInfo.features.map(feature => `<li>${feature}</li>`).join('');
+        }
+        
+        // Initialize with selected plan
+        updatePlanDisplay(selectedPlan);
+        
+        // Handle plan selection change
+        document.getElementById('planSelect').addEventListener('change', function(e) {
+            updatePlanDisplay(e.target.value);
+        });
+        
+        // Handle form submission
+        document.getElementById('payment-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitButton = document.getElementById('submitButton');
+            const loading = document.getElementById('loading');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            // Hide previous messages
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+            
+            // Show loading
+            submitButton.style.display = 'none';
+            loading.style.display = 'block';
+            
+            try {
+                const formData = {
+                    tier: document.getElementById('planSelect').value,
+                    email: document.getElementById('email').value,
+                    name: document.getElementById('name').value,
+                    company: document.getElementById('company').value
+                };
+                
+                // Create checkout session with our backend
+                const response = await fetch('http://24.144.127.169:8081/api/create-checkout-session', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                const result = await response.json();
+                
+                if (result.success && result.checkout_url) {
+                    // Redirect to Stripe checkout
+                    window.location.href = result.checkout_url;
+                } else {
+                    throw new Error(result.error || 'Failed to create checkout session');
+                }
+                
+            } catch (error) {
+                console.error('Payment error:', error);
+                errorMessage.textContent = error.message || 'Payment failed. Please try again.';
+                errorMessage.style.display = 'block';
+                
+                // Reset form state
+                submitButton.style.display = 'block';
+                loading.style.display = 'none';
+            }
+        });
+        
+        // Handle direct checkout (for Start Free Trial buttons)
+        if (urlParams.get('direct') === 'true') {
+            // Auto-submit the form for direct checkout
+            setTimeout(() => {
+                if (document.getElementById('email').value && document.getElementById('name').value) {
+                    document.getElementById('payment-form').dispatchEvent(new Event('submit'));
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
+
